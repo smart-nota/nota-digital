@@ -1,0 +1,95 @@
+<!-- Fintech Support Modal -->
+<div id="supportModal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4 bg-black/40 backdrop-blur-sm">
+    <!-- Modal Card -->
+    <div class="w-full max-w-md overflow-hidden transition-all transform bg-white shadow-2xl rounded-3xl animate-bounce-in">
+        
+        <!-- Header Gradient -->
+        <div class="p-6 text-center text-white bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500">
+            <h2 class="text-2xl font-bold tracking-tight">Suka Menggunakan KAFA Smart Digital? 😊</h2>
+        </div>
+
+        <div id="initialView" class="p-8 text-center">
+            <p class="mb-6 leading-relaxed text-gray-600">
+                Assalamualaikum! Saya harap web app ini membantu pembelajaran anak-anak. Saya bangunkan platform ini secara <strong>percuma</strong>.
+            </p>
+            <p class="mb-8 leading-relaxed text-gray-600">
+                Jika ibu/bapa rasa web ini bermanfaat, jemputlah "belanja" saya kopi. Sumbangan kecil anda, walaupun cuma <strong>RM1</strong>, sangat besar maknanya untuk saya terus kemas kini aplikasi ini.
+            </p>
+
+            <div class="flex flex-col gap-3">
+                <button onclick="showDonationDetails()" class="w-full py-4 font-bold text-white transition-transform bg-blue-500 shadow-lg rounded-2xl active:scale-95 hover:bg-blue-600">
+                    🚀 Sokong Sekarang (QR/Akaun)
+                </button>
+                <button onclick="closeModal()" class="w-full py-3 font-semibold text-gray-400 transition-colors bg-gray-100 rounded-2xl hover:bg-gray-200">
+                    Mungkin Nanti
+                </button>
+            </div>
+        </div>
+
+        <!-- Donation Details View (Hidden initially) -->
+        <div id="donationView" class="hidden p-8 text-center">
+            <div class="flex flex-col items-center p-4 mb-6 border-2 border-dashed border-gray-200 rounded-3xl bg-gray-50">
+                <!-- Reference to your QR Image -->
+                <img src="image_38d6b7.jpg" alt="Maybank QR" class="w-48 h-auto mb-4 shadow-md rounded-xl">
+                
+                <div class="w-full p-4 bg-white shadow-sm rounded-2xl">
+                    <p class="text-xs font-bold tracking-widest text-gray-400 uppercase">Maybank</p>
+                    <p class="text-lg font-bold text-gray-800">162740196672</p>
+                    <p class="mb-3 text-sm text-gray-500">Wan Hasbullah Wan Hussin</p>
+                    
+                    <button onclick="copyAccNumber()" class="flex items-center justify-center w-full gap-2 py-2 text-sm font-bold text-blue-600 transition-colors border-2 border-blue-100 rounded-xl hover:bg-blue-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                        </svg>
+                        <span id="copyText">Salin No. Akaun</span>
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="closeModal()" class="font-bold text-blue-500 underline underline-offset-4">
+                Kembali ke Utama
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes bounce-in {
+        0% { transform: scale(0.9); opacity: 0; }
+        70% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+    .animate-bounce-in {
+        animation: bounce-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+</style>
+
+<script>
+    function showDonationDetails() {
+        document.getElementById('initialView').classList.add('hidden');
+        document.getElementById('donationView').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('supportModal').classList.add('hidden');
+    }
+
+    // Fungsi untuk munculkan modal (contoh: selepas 5 saat user guna web)
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById('supportModal').classList.remove('hidden');
+        }, 5000);
+    };
+
+    function copyAccNumber() {
+        const accNo = "162740196672";
+        navigator.clipboard.writeText(accNo);
+        
+        const copyBtnText = document.getElementById('copyText');
+        copyBtnText.innerText = "Berjaya Disalin! ✅";
+        
+        setTimeout(() => {
+            copyBtnText.innerText = "Salin No. Akaun";
+        }, 2000);
+    }
+</script>
