@@ -6,6 +6,234 @@
   <title>KAFA Learn 🌙 Pusat Ilmu Digital</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Uji Kefahaman / Games Section ── */
+    .games-section {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 16px;
+    }
+
+    .games-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .games-section-header .section-title {
+      margin-bottom: 0;
+    }
+
+    .games-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46, 204, 138, 0.12);
+      border: 1.5px solid rgba(46, 204, 138, 0.35);
+      color: #7FFFCA;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 5px 13px;
+      border-radius: 30px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .games-live-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2ECC8A;
+      box-shadow: 0 0 8px #2ECC8A;
+      animation: blink-dot 1.4s infinite;
+    }
+
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    .game-card {
+      position: relative;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #0E1B44, #070E2A);
+      border: 2px solid rgba(245, 200, 66, 0.22);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 200, 66, 0.45);
+      box-shadow: 0 16px 56px rgba(0,0,0,0.6), 0 0 32px rgba(245,200,66,0.12);
+    }
+
+    .game-card-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .game-card-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .game-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #F5C842, #C9962A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 14px rgba(245,200,66,0.35);
+      flex-shrink: 0;
+    }
+
+    .game-card-meta { display: flex; flex-direction: column; gap: 1px; }
+
+    .game-card-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .game-card-name {
+      font-family: 'Baloo 2', cursive;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .game-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #F5C842, #C9962A);
+      color: #0A0F2E;
+      font-weight: 900;
+      font-size: 0.75rem;
+      padding: 7px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(245,200,66,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .game-open-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 24px rgba(245,200,66,0.55);
+    }
+
+    .game-open-btn svg {
+      width: 12px; height: 12px; fill: #0A0F2E;
+    }
+
+    .game-iframe-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #060B1F;
+      overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .game-iframe-wrap { padding-bottom: 115%; }
+    }
+
+    .game-iframe-wrap::before {
+      content: '🎮 Memuatkan permainan...';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(245,200,66,0.45);
+      font-family: 'Baloo 2', cursive;
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .game-iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+      z-index: 1;
+    }
+
+    .game-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .game-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .game-chip {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 11px;
+      border-radius: 20px;
+    }
+
+    .game-chip.green {
+      background: rgba(46,204,138,0.12);
+      border: 1px solid rgba(46,204,138,0.25);
+      color: #7FFFCA;
+    }
+
+    .game-chip.gold {
+      background: rgba(245,200,66,0.1);
+      border: 1px solid rgba(245,200,66,0.25);
+      color: #F5C842;
+    }
+
+    .game-chip.purple {
+      background: rgba(124,95,212,0.12);
+      border: 1px solid rgba(124,95,212,0.28);
+      color: #C5ACFF;
+    }
+
+    .game-fullscreen-link {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .game-fullscreen-link:hover { color: #F5C842; }
+  </style>
 </head>
 <body>
 
@@ -19,11 +247,11 @@
         <div class="logo-icon">🕌</div>
         <div class="logo-text">
           <span class="logo-title">KAFA<span class="logo-accent">Learn</span></span>
-          <span class="logo-sub">Pusat Ilmu Digital</span>
+          <span class="logo-sub">Nota Digital</span>
         </div>
       </div>
       <div class="header-badge">
-        <span class="star-badge">⭐ Darjah 1</span>
+        <span class="star-badge">⭐ Darjah 2</span>
       </div>
     </div>
   </header>
@@ -37,11 +265,6 @@
     <div class="hero-text">
       <h1>Hai, Pelajar Hebat! <span class="wave">👋</span></h1>
       <p>Pilih subjek yang ingin kamu pelajari hari ini</p>
-    </div>
-    <!-- Coin / XP bar -->
-    <div class="xp-bar-wrap">
-      <div class="xp-label">⚡ Mata Ilmu: <strong>120</strong></div>
-      <div class="xp-track"><div class="xp-fill" style="width:60%"></div></div>
     </div>
   </section>
 
@@ -98,14 +321,54 @@
 
   </main>
 
-  <!-- Progress Section -->
-  <section class="progress-section">
-    <h3 class="section-title">🏆 Pencapaianku</h3>
-    <div class="badges-row">
-      <div class="badge-item earned"><span>⭐</span><small>Rajin Belajar</small></div>
-      <div class="badge-item earned"><span>🌟</span><small>Sirah Star</small></div>
-      <div class="badge-item locked"><span>🔒</span><small>Ibadah Pro</small></div>
-      <div class="badge-item locked"><span>🔒</span><small>Jawi Master</small></div>
+  <!-- ── Uji Kefahaman ── -->
+  <section class="games-section">
+
+    <div class="games-section-header">
+      <h3 class="section-title">🎮 Uji Kefahaman</h3>
+      <span class="games-live-badge">Aktif Sekarang</span>
+    </div>
+
+    <div class="game-card">
+
+      <div class="game-card-topbar">
+        <div class="game-card-topbar-left">
+          <div class="game-icon-wrap">🧠</div>
+          <div class="game-card-meta">
+            <span class="game-card-label">Permainan Ilmu</span>
+            <span class="game-card-name">KAFA Learning Game</span>
+          </div>
+        </div>
+        <a href="https://smart-nota.github.io/game-digital/kafa-learning/index.html"
+           target="_blank" rel="noopener" class="game-open-btn">
+          Buka Penuh
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h7V3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7H5V5z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="game-iframe-wrap">
+        <iframe
+          src="https://smart-nota.github.io/game-digital/kafa-learning/index.html"
+          title="KAFA Learning Game"
+          allow="fullscreen"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div class="game-card-footer">
+        <div class="game-chips">
+          <span class="game-chip green">✅ Sirah</span>
+          <span class="game-chip gold">⭐ Ibadah</span>
+          <span class="game-chip purple">✍️ Jawi</span>
+        </div>
+        <a href="https://smart-nota.github.io/game-digital/kafa-learning/index.html"
+           target="_blank" rel="noopener" class="game-fullscreen-link">
+          ⛶ Skrin penuh
+        </a>
+      </div>
+
     </div>
   </section>
 
