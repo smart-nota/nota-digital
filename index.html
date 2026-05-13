@@ -7,7 +7,83 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── Uji Kefahaman / Games Section ── */
+    /* ── KOD BARU: COFFEE SUPPORT BUTTON (FINTECH STYLE) ── */
+    .support-btn-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .coffee-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #FF9D6C, #FF6B6B);
+      width: 45px;
+      height: 45px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      animation: coffee-float 3s ease-in-out infinite;
+    }
+
+    .coffee-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    }
+
+    .coffee-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    @keyframes coffee-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Bubble Tooltip Style */
+    .coffee-bubble {
+      position: absolute;
+      right: 55px;
+      background: white;
+      color: #333;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      font-family: 'Nunito', sans-serif;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.5s ease;
+      z-index: 100;
+    }
+
+    .coffee-bubble.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .coffee-bubble::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid white;
+    }
+
+    /* CSS ASAL ANDA (KEKAL) */
     .games-section {
       position: relative;
       z-index: 1;
@@ -56,7 +132,7 @@
 
     @keyframes blink-dot {
       0%, 100% { opacity: 1; }
-      50%       { opacity: 0.2; }
+      50% { opacity: 0.2; }
     }
 
     .game-card {
@@ -158,6 +234,8 @@
 
     @media (max-width: 600px) {
       .game-iframe-wrap { padding-bottom: 115%; }
+      /* Adjust bubble on mobile */
+      .coffee-bubble { display: none; } 
     }
 
     .game-iframe-wrap::before {
@@ -250,8 +328,17 @@
           <span class="logo-sub">Nota Digital</span>
         </div>
       </div>
-      <div class="header-badge">
-        <span class="star-badge">⭐ Darjah 2</span>
+      
+      <!-- SUPPORT COFFEE SECTION (Ubah Darjah 2 ke sini) -->
+      <div class="support-btn-wrapper">
+        <div class="coffee-bubble" id="coffeeBubble">Suka web ini? Jom belanja saya kopi! ☕️</div>
+        <a href="https://smart-nota.github.io/game-digital/sokong-saya.html" class="coffee-btn" title="Sokong Kami">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,8H4V20H20V8M20,6A2,2 0 0,1 22,8V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V8A2,2 0 0,1 4,6H20M14,2V4H10V2H14M16,2H18V4H16V2M6,2H8V4H6V2Z" style="display:none" />
+            <!-- Custom Coffee Icon Path -->
+            <path d="M2 21h18v-2H2v2zM20 8h-2V5h2v3zm2-3H18V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V8h2a3 3 0 0 0 0-6h-2v2h2a1 1 0 0 1 0 2zM4 3h12v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V3z" />
+          </svg>
+        </a>
       </div>
     </div>
   </header>
@@ -340,7 +427,7 @@
           </div>
         </div>
         <a href="https://smart-nota.github.io/game-digital/kafa-learning/index.html"
-           target="_blank" rel="noopener" class="game-open-btn">
+            target="_blank" rel="noopener" class="game-open-btn">
           Buka Penuh
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h7V3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7H5V5z"/>
@@ -364,7 +451,7 @@
           <span class="game-chip purple">✍️ Jawi</span>
         </div>
         <a href="https://smart-nota.github.io/game-digital/kafa-learning/index.html"
-           target="_blank" rel="noopener" class="game-fullscreen-link">
+            target="_blank" rel="noopener" class="game-fullscreen-link">
           ⛶ Skrin penuh
         </a>
       </div>
@@ -378,5 +465,37 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- SCRIPT UNTUK BUBBLE ANIMASI -->
+  <script>
+    const messages = [
+      "Suka web ini? Jom belanja saya kopi! ☕️",
+      "Bantu saya kekal percuma dengan RM1. ❤️",
+      "Klik di sini untuk sokong modal web ini. 😊"
+    ];
+    
+    let currentIndex = 0;
+    const bubble = document.getElementById('coffeeBubble');
+
+    function updateBubble() {
+      // Hilangkan dulu
+      bubble.classList.remove('show');
+      
+      setTimeout(() => {
+        // Tukar teks
+        bubble.innerText = messages[currentIndex];
+        // Munculkan balik
+        bubble.classList.add('show');
+        // Update index
+        currentIndex = (currentIndex + 1) % messages.length;
+      }, 500); // Masa transition keluar
+    }
+
+    // Jalankan setiap 15 saat
+    setInterval(updateBubble, 15000);
+    
+    // Jalankan kali pertama selepas 2 saat loading
+    setTimeout(updateBubble, 2000);
+  </script>
 </body>
 </html>
