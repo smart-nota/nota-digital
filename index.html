@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── KOD BARU: COFFEE SUPPORT BUTTON (FINTECH STYLE) ── */
+    /* ── KOD DIKEMASKINI: COFFEE SUPPORT (MINIMALIST STYLE - TIADA BACKGROUND MERAH) ── */
     .support-btn-wrapper {
       position: relative;
       display: flex;
@@ -19,38 +19,53 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #FF9D6C, #FF6B6B);
-      width: 45px;
-      height: 45px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      background: transparent; /* Latar belakang dibuang */
+      width: 50px;
+      height: 50px;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
       animation: coffee-float 3s ease-in-out infinite;
     }
 
     .coffee-btn:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      transform: scale(1.2) rotate(5deg);
     }
 
+    /* Ikon SVG dengan Animasi Wap */
     .coffee-btn svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+    }
+
+    .steam {
+      stroke: #FF9D6C; /* Warna wap ditukar ke peach/orange supaya lebih jelas */
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 10;
+      stroke-dashoffset: 20;
+      animation: steam-move 2s linear infinite;
+      opacity: 0;
+    }
+
+    .steam-2 { animation-delay: 0.7s; }
+
+    @keyframes steam-move {
+      0% { stroke-dashoffset: 20; opacity: 0; }
+      50% { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 0; }
     }
 
     @keyframes coffee-float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-6px); }
     }
 
     /* Bubble Tooltip Style */
     .coffee-bubble {
       position: absolute;
-      right: 55px;
+      right: 60px;
       background: white;
       color: #333;
       padding: 8px 15px;
@@ -58,7 +73,7 @@
       font-size: 0.75rem;
       font-weight: 800;
       white-space: nowrap;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       font-family: 'Nunito', sans-serif;
       pointer-events: none;
       opacity: 0;
@@ -83,7 +98,7 @@
       border-left: 6px solid white;
     }
 
-    /* CSS ASAL ANDA (KEKAL) */
+    /* ── CSS ASAL ANDA (100% KEKAL) ── */
     .games-section {
       position: relative;
       z-index: 1;
@@ -234,7 +249,6 @@
 
     @media (max-width: 600px) {
       .game-iframe-wrap { padding-bottom: 115%; }
-      /* Adjust bubble on mobile */
       .coffee-bubble { display: none; } 
     }
 
@@ -329,14 +343,18 @@
         </div>
       </div>
       
-      <!-- SUPPORT COFFEE SECTION (Ubah Darjah 2 ke sini) -->
+      <!-- SUPPORT COFFEE SECTION (Minimalist) -->
       <div class="support-btn-wrapper">
         <div class="coffee-bubble" id="coffeeBubble">Suka web ini? Jom belanja saya kopi! ☕️</div>
         <a href="https://smart-nota.github.io/game-digital/sokong-saya.html" class="coffee-btn" title="Sokong Kami">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20,8H4V20H20V8M20,6A2,2 0 0,1 22,8V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V8A2,2 0 0,1 4,6H20M14,2V4H10V2H14M16,2H18V4H16V2M6,2H8V4H6V2Z" style="display:none" />
-            <!-- Custom Coffee Icon Path -->
-            <path d="M2 21h18v-2H2v2zM20 8h-2V5h2v3zm2-3H18V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V8h2a3 3 0 0 0 0-6h-2v2h2a1 1 0 0 1 0 2zM4 3h12v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V3z" />
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Wap Kopi Beranimasi -->
+            <path class="steam steam-1" d="M9 4C9 4 7.5 5.5 9 7C10.5 8.5 9 10 9 10" fill="none" />
+            <path class="steam steam-2" d="M13 3C13 3 11.5 4.5 13 6C14.5 7.5 13 9 13 9" fill="none" />
+            <!-- Badan Cawan (Putih) -->
+            <path d="M18 10H4C2.89543 10 2 10.8954 2 12V15C2 18.3137 4.68629 21 8 21H14C17.3137 21 20 18.3137 20 15V12C20 10.8954 19.1046 10 18 10Z" fill="#FFFFFF" />
+            <!-- Pemegang Cawan -->
+            <path d="M20 12C20 12 22 12 22 14.5C22 17 20 17 20 17" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
           </svg>
         </a>
       </div>
@@ -351,14 +369,12 @@
     </div>
     <div class="hero-text">
       <h1>Hai, Pelajar Hebat! <span class="wave">👋</span></h1>
-      <p>Pilih subjek yang ingin kamu pelajari hari ini</p>
+      <p>Pilih subjek yang ingin kamu ulang kaji hari ini</p>
     </div>
   </section>
 
   <!-- Subject Cards -->
   <main class="subjects-grid">
-
-    <!-- SIRAH -->
     <a href="subjek-sirah.html" class="subject-card card-sirah">
       <div class="card-glow"></div>
       <div class="card-emoji">🌟</div>
@@ -374,7 +390,6 @@
       <div class="card-arrow">→</div>
     </a>
 
-    <!-- IBADAH -->
     <a href="subjek-ibadah.html" class="subject-card card-ibadah">
       <div class="card-glow"></div>
       <div class="card-emoji">🤲</div>
@@ -390,7 +405,6 @@
       <div class="card-arrow">→</div>
     </a>
 
-    <!-- JAWI -->
     <a href="subjek-jawi.html" class="subject-card card-jawi">
       <div class="card-glow"></div>
       <div class="card-emoji">✍️</div>
@@ -405,19 +419,16 @@
       </div>
       <div class="card-arrow">→</div>
     </a>
-
   </main>
 
   <!-- ── Uji Kefahaman ── -->
   <section class="games-section">
-
     <div class="games-section-header">
       <h3 class="section-title">🎮 Uji Kefahaman</h3>
       <span class="games-live-badge">Aktif Sekarang</span>
     </div>
 
     <div class="game-card">
-
       <div class="game-card-topbar">
         <div class="game-card-topbar-left">
           <div class="game-icon-wrap">🧠</div>
@@ -455,7 +466,6 @@
           ⛶ Skrin penuh
         </a>
       </div>
-
     </div>
   </section>
 
@@ -478,23 +488,16 @@
     const bubble = document.getElementById('coffeeBubble');
 
     function updateBubble() {
-      // Hilangkan dulu
       bubble.classList.remove('show');
       
       setTimeout(() => {
-        // Tukar teks
         bubble.innerText = messages[currentIndex];
-        // Munculkan balik
         bubble.classList.add('show');
-        // Update index
         currentIndex = (currentIndex + 1) % messages.length;
-      }, 500); // Masa transition keluar
+      }, 500); 
     }
 
-    // Jalankan setiap 15 saat
     setInterval(updateBubble, 15000);
-    
-    // Jalankan kali pertama selepas 2 saat loading
     setTimeout(updateBubble, 2000);
   </script>
 </body>
