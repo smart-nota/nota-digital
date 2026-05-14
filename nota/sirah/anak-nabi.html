@@ -3,133 +3,306 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Anak-Anak Nabi Muhammad SAW 🌟 KAFA Learn</title>
-  <link rel="stylesheet" href="../../css/style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <title>Anak-Anak Nabi Muhammad SAW 🌟 KAFA Learn Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #121212; /* Deep Fintech Black */
+      --accent: #D4AF37;  /* Metallic Gold */
+      --accent-light: #F4DF4E;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #FFFFFF;
+      --text-dim: #A0A0A0;
+      --success: #28a745;
+      --warning: #ffc107;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      background: var(--primary);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Background Stars */
+    .stars-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #1e1e1e 0%, #000 100%);
+      z-index: -1;
+    }
+
+    /* Header Styling */
+    .page-header {
+      padding: 20px;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn { color: var(--accent); text-decoration: none; font-weight: bold; }
+
+    /* Hero Section */
+    .nota-hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, rgba(212,175,55,0.1) 0%, transparent 100%);
+    }
+
+    .nota-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.2rem; margin: 10px 0; color: var(--accent); }
+
+    /* Interactive Blocks */
+    .nota-content { max-width: 800px; margin: 0 auto; padding: 20px; }
+    
+    .nota-block {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 30px;
+      display: none; /* Hidden by default */
+      animation: slideUp 0.5s ease forwards;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nota-block.active { display: block; }
+
+    /* Table Fintech Style */
+    .nota-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.9rem;
+    }
+    .nota-table th { background: rgba(212,175,55,0.2); color: var(--accent); padding: 12px; text-align: left; border-radius: 5px; }
+    .nota-table td { padding: 12px; border-bottom: 1px solid var(--glass-border); }
+
+    /* Interaction Buttons */
+    .interaction-area {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .btn-faham { background: var(--accent); color: var(--primary); }
+    .btn-tak { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+    .btn:hover { transform: scale(1.05); opacity: 0.9; }
+
+    /* Comic Explanation Style */
+    .comic-box {
+      background: #FFF;
+      color: #000;
+      border-radius: 15px;
+      padding: 15px;
+      position: relative;
+      margin-top: 15px;
+      display: none;
+      border: 3px solid #000;
+    }
+
+    .comic-box::before {
+      content: '';
+      position: absolute;
+      top: -15px; left: 30px;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid #000;
+    }
+
+    .info-box {
+        background: rgba(212, 175, 55, 0.1);
+        border-left: 4px solid var(--accent);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .highlight-chip {
+        display: inline-block;
+        padding: 5px 15px;
+        background: var(--glass);
+        border: 1px solid var(--accent);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 5px;
+    }
+
+    footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; }
+
+    /* Mobile Adjustment */
+    @media (max-width: 600px) {
+      .interaction-area { flex-direction: column; }
+      .nota-hero h1 { font-size: 1.8rem; }
+      .nota-table { font-size: 0.8rem; }
+    }
+  </style>
 </head>
 <body>
-  <div class="stars-bg" id="starsBg"></div>
+
+  <div class="stars-bg"></div>
 
   <header class="page-header">
     <div class="page-header-inner">
-      <a href="../../subjek-sirah.html" class="back-btn">← Sirah</a>
-      <div class="page-title-area">
-        <h2>📖 Anak-Anak Nabi Muhammad SAW</h2>
-        <span>Topik 2 · Subjek Sirah</span>
+      <a href="#" class="back-btn">← Sirah</a>
+      <div style="margin-top:5px">
+        <small style="color:var(--accent)">Topik 2 · Subjek Sirah</small>
       </div>
     </div>
   </header>
 
   <article class="nota-page">
-
     <div class="nota-hero">
-      <div class="nota-emoji">👨‍👩‍👧‍👦</div>
+      <div style="font-size: 3rem;">👨‍👩‍👧‍👦</div>
       <h1>Anak-Anak Nabi Muhammad SAW</h1>
-      <p>Nabi Muhammad SAW dikurniakan 7 orang anak</p>
-      <span class="nota-chip">📖 Topik 2 · Sirah</span>
+      <p style="color:var(--text-dim)">Mari kita belajar mengenai keluarga Baginda Nabi ﷺ</p>
     </div>
 
-    <div class="nota-content">
-
-      <div class="nota-block" style="animation-delay:0.1s">
-        <h2>👶 Jumlah & Ibu Anak-Anak Baginda</h2>
-        <p>Nabi Muhammad SAW dikurniakan <strong>7 orang anak</strong>. Enam orang daripada isteri pertama baginda, <strong>Siti Khadijah RA</strong>, dan seorang lagi daripada isterinya <strong>Mariah Al-Qibtiyyah</strong>.</p>
+    <div class="nota-content" id="lessonContainer">
+      
+      <!-- BLOCK 1: JUMLAH -->
+      <div class="nota-block active" id="b1">
+        <h2>👶 1. Jumlah & Ibu Anak-Anak Baginda</h2>
+        <p>Nabi Muhammad SAW dikurniakan <strong>7 orang anak</strong>.</p>
         <div class="info-box">
-          👩 <strong>Siti Khadijah RA</strong> — ibu kepada 6 anak<br/>
-          👩 <strong>Mariah Al-Qibtiyyah</strong> — ibu kepada Ibrahim
+          👩 <strong>Siti Khadijah RA</strong> — (6 anak)<br/>
+          👩 <strong>Mariah Al-Qibtiyyah</strong> — (1 anak: Ibrahim)
+        </div>
+        
+        <div class="interaction-area">
+            <span style="width:100%; text-align:center; display:block; margin-bottom:10px">Awak dah faham jumlah anak Nabi?</span>
+            <button class="btn btn-tak" onclick="showComic('c1')">Saya tak faham...</button>
+            <button class="btn btn-faham" onclick="nextStep('b2')">Saya faham!</button>
+        </div>
+
+        <div id="c1" class="comic-box">
+            <strong>🗨️ Cikgu Pesan:</strong> Mudah saja! Ingat nombor <b>7</b>. 
+            Bayangkan 6 anak dari isteri pertama (Khadijah) dan 1 anak dari isteri Mariah. 6 + 1 = 7!
         </div>
       </div>
 
-      <!-- Putera -->
-      <div class="nota-block" style="animation-delay:0.15s">
-        <h2>👦 Putera-Putera Baginda</h2>
+      <!-- BLOCK 2: PUTERA -->
+      <div class="nota-block" id="b2">
+        <h2>👦 2. Putera-Putera Baginda (Lelaki)</h2>
         <table class="nota-table">
-          <tr><th>#</th><th>Nama</th><th>Ibu</th><th>Maklumat</th></tr>
-          <tr>
-            <td>1</td><td><strong>Al-Qasim</strong></td><td>Siti Khadijah</td>
-            <td>Anak sulung. Wafat semasa kecil (usia 2 tahun)</td>
-          </tr>
-          <tr>
-            <td>2</td><td><strong>Abdullah</strong></td><td>Siti Khadijah</td>
-            <td>Digelar At-Tayyib & At-Tahir. Wafat semasa kecil</td>
-          </tr>
-          <tr>
-            <td>3</td><td><strong>Ibrahim</strong></td><td>Mariah Al-Qibtiyyah</td>
-            <td>Anak bongsu. Wafat pada usia 16-18 bulan</td>
-          </tr>
+          <tr><th>Nama</th><th>Ibu</th></tr>
+          <tr><td><strong>Al-Qasim</strong></td><td>Siti Khadijah</td></tr>
+          <tr><td><strong>Abdullah</strong></td><td>Siti Khadijah</td></tr>
+          <tr><td><strong>Ibrahim</strong></td><td>Mariah Al-Qibtiyyah</td></tr>
         </table>
-        <div class="fun-fact">
-          <div class="ff-icon">💡</div>
-          <p>Nabi Muhammad SAW sering dipanggil <strong>"Abu Qasim"</strong> (Bapa kepada Qasim) kerana nama anak sulungnya adalah Al-Qasim.</p>
+        <p><i>*Nota: Semua putera Nabi wafat semasa masih kecil.</i></p>
+        
+        <div class="interaction-area">
+            <span style="width:100%; text-align:center; display:block; margin-bottom:10px">Boleh kita teruskan ke Puteri Nabi?</span>
+            <button class="btn btn-tak" onclick="showComic('c2')">Belum faham...</button>
+            <button class="btn btn-faham" onclick="nextStep('b3')">Boleh, teruskan!</button>
+        </div>
+
+        <div id="c2" class="comic-box">
+            <strong>🗨️ Cikgu Pesan:</strong> Lelaki ada <b>3 orang</b>. Yang sulung namanya Qasim, sebab itu Nabi digelar 'Abu Qasim'.
         </div>
       </div>
 
-      <!-- Puteri -->
-      <div class="nota-block" style="animation-delay:0.2s">
-        <h2>👧 Puteri-Puteri Baginda</h2>
+      <!-- BLOCK 3: PUTERI -->
+      <div class="nota-block" id="b3">
+        <h2>👧 3. Puteri-Puteri Baginda (Perempuan)</h2>
         <table class="nota-table">
-          <tr><th>#</th><th>Nama</th><th>Suami</th><th>Maklumat</th></tr>
-          <tr>
-            <td>1</td><td><strong>Zainab</strong></td><td>Abul 'Ash bin Rabi'</td>
-            <td>Anak perempuan sulung</td>
-          </tr>
-          <tr>
-            <td>2</td><td><strong>Ruqayyah</strong></td><td>Uthman bin Affan</td>
-            <td>Menikah dengan Sayyidina Uthman RA</td>
-          </tr>
-          <tr>
-            <td>3</td><td><strong>Ummu Kulthum</strong></td><td>Uthman bin Affan</td>
-            <td>Menikah dengan Sayyidina Uthman RA (selepas Ruqayyah wafat)</td>
-          </tr>
-          <tr>
-            <td>4</td><td><strong>Fatimah Az-Zahra</strong></td><td>Ali bin Abi Talib</td>
-            <td>Anak perempuan bongsu & paling dicintai Nabi ﷺ</td>
-          </tr>
+          <tr><th>Nama</th><th>Suami</th></tr>
+          <tr><td><strong>Zainab</strong></td><td>Abul 'Ash</td></tr>
+          <tr><td><strong>Ruqayyah</strong></td><td>Uthman bin Affan</td></tr>
+          <tr><td><strong>Ummu Kulthum</strong></td><td>Uthman bin Affan</td></tr>
+          <tr><td><strong>Fatimah</strong></td><td>Ali bin Abi Talib</td></tr>
         </table>
+
+        <div class="interaction-area">
+            <span style="width:100%; text-align:center; display:block; margin-bottom:10px">Fatimah sangat istimewa, nak tahu kenapa?</span>
+            <button class="btn btn-tak" onclick="showComic('c3')">Siapa anak bongsu?</button>
+            <button class="btn btn-faham" onclick="nextStep('b4')">Ya, beritahu saya!</button>
+        </div>
+
+        <div id="c3" class="comic-box">
+            <strong>🗨️ Cikgu Pesan:</strong> Puteri ada <b>4 orang</b>. Fatimah adalah yang paling bongsu dan sangat disayangi Nabi.
+        </div>
       </div>
 
-      <!-- Fatimah Special -->
-      <div class="nota-block" style="animation-delay:0.25s">
-        <h2>⭐ Fatimah Az-Zahra — Penghulu Wanita Syurga</h2>
-        <p>Fatimah Az-Zahra adalah puteri bongsu dan paling istimewa di sisi Nabi Muhammad SAW. Sabda Nabi SAW:</p>
+      <!-- BLOCK 4: FATIMAH -->
+      <div class="nota-block" id="b4">
+        <h2>⭐ Fatimah Az-Zahra</h2>
+        <p>Beliau digelar <strong>Penghulu Wanita Syurga</strong>. Nabi ﷺ bersabda:</p>
         <div class="info-box">
-          💬 <em>"Fatimah adalah sebahagian daripadaku. Sesiapa yang menyakitinya bererti menyakitiku."</em><br/>
-          — Hadis Riwayat Bukhari &amp; Muslim
+          💬 <em>"Fatimah adalah sebahagian daripadaku..."</em>
         </div>
         <div class="highlight-row">
-          <div class="highlight-chip gold">Az-Zahra = Yang Bercahaya</div>
-          <div class="highlight-chip">Suami: Ali bin Abi Talib</div>
-          <div class="highlight-chip purple">Anak: Hasan & Husain</div>
+            <span class="highlight-chip">Anak: Hasan & Husain</span>
+            <span class="highlight-chip">Suami: Ali bin Abi Talib</span>
+        </div>
+
+        <div class="interaction-area">
+            <button class="btn btn-faham" style="width:100%" onclick="nextStep('finish')">Selesai Belajar! 🎉</button>
         </div>
       </div>
 
-      <!-- Ringkasan -->
-      <div class="nota-block" style="animation-delay:0.3s">
-        <h2>📝 Ringkasan — 7 Anak Nabi SAW</h2>
-        <div class="highlight-row" style="flex-direction:column; gap:8px">
-          <div style="color:var(--text-soft); font-size:0.9rem">
-            <strong style="color:var(--gold)">Putera (3):</strong> Al-Qasim · Abdullah · Ibrahim
-          </div>
-          <div style="color:var(--text-soft); font-size:0.9rem">
-            <strong style="color:var(--gold-light)">Puteri (4):</strong> Zainab · Ruqayyah · Ummu Kulthum · Fatimah Az-Zahra
-          </div>
-        </div>
-        <div class="fun-fact" style="margin-top:14px">
-          <div class="ff-icon">💡</div>
-          <p>Semua putera Nabi SAW wafat semasa kecil. Hanya keturunan Fatimah Az-Zahra (melalui Hasan dan Husain) yang meneruskan keturunan Rasulullah SAW.</p>
-        </div>
+      <!-- FINISH -->
+      <div class="nota-block" id="finish" style="text-align:center">
+        <h2 style="color:var(--accent)">Alhamdulillah!</h2>
+        <p>Tahniah! Awak telah tamat Topik 2. Sekarang awak dah kenal 7 anak-anak Rasulullah SAW.</p>
+        <button class="btn btn-faham" onclick="location.reload()">Ulang Nota</button>
       </div>
 
     </div>
 
-    <div class="nota-nav">
-      <a href="biodata-nabi.html" class="prev">Topik 1: Biodata Nabi</a>
-      <a href="ibu-susuan-1.html" class="next">Topik 3: Ibu Susuan Pertama</a>
+    <div class="nota-nav" style="text-align:center; margin-top:20px;">
+        <small style="color:var(--text-dim)">🌙 KAFA Learn · Sistem Nota Interaktif</small>
     </div>
-
   </article>
 
-  <footer class="main-footer"><p>🌙 KAFA Learn · Sirah Topik 2</p></footer>
-  <script src="../../js/main.js"></script>
+  <footer><p>© 2026 KAFA Learn Premium Edition</p></footer>
+
+  <script>
+    // Fungsi untuk ke langkah seterusnya
+    function nextStep(nextId) {
+      // Sembunyikan semua blok
+      const blocks = document.querySelectorAll('.nota-block');
+      blocks.forEach(b => b.classList.remove('active'));
+
+      // Tunjukkan blok seterusnya
+      const nextBlock = document.getElementById(nextId);
+      if(nextBlock) {
+        nextBlock.classList.add('active');
+        // Scroll ke atas sikit untuk nampak natural
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+      }
+    }
+
+    // Fungsi tunjuk mod komik/mudah
+    function showComic(comicId) {
+      const comic = document.getElementById(comicId);
+      comic.style.display = 'block';
+      // Auto-hide button tak faham selepas klik
+      event.target.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
