@@ -534,3 +534,33 @@ body {
   .nota-block    { padding:18px 16px; }
   .central-node  { padding:14px 22px; }
 }
+
+/* Gaya Butang Akses Pantas */
+    .quick-access-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    .quick-access-btn:hover {
+      background: #F5C842;
+      color: #0A0F2E;
+      border-color: #F5C842;
+      transform: translateY(-2px);
+    }
+
+    .quick-access-btn svg {
+      width: 14px;
+      height: 14px;
+    }
