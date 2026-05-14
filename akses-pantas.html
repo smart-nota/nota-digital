@@ -114,6 +114,33 @@
             color: #000;
         }
 
+        /* Butang Kembali - Gaya Fintech Eksklusif */
+        .btn-back {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .btn-back:hover {
+            color: var(--primary-gold);
+            opacity: 1;
+        }
+
+        .btn-back svg {
+            margin-right: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-back:hover svg {
+            transform: translateX(-4px);
+        }
+
         /* Modal / Popup */
         #instructionModal {
             display: none;
@@ -183,6 +210,12 @@
             <span><i style="font-style: normal; font-size: 1.2rem;">🍎</i></span> Pengguna iPhone / iOS
         </button>
     </div>
+
+    <!-- Tambahan: Butang Kembali -->
+    <a href="https://kafa-smart-digital.pages.dev/" class="btn-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Kembali ke Laman Utama
+    </a>
 </div>
 
 <!-- Modal Panduan -->
