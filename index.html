@@ -249,7 +249,7 @@
 
     @media (max-width: 600px) {
       .game-iframe-wrap { padding-bottom: 115%; }
-      .coffee-bubble { display: none; } 
+      /* FIX 1: Bubble dipaparkan di mobile - baris display:none dibuang */
     }
 
     .game-iframe-wrap::before {
@@ -365,7 +365,10 @@
   <section class="hero-section">
     <div class="hero-mascot">
       <div class="mascot-bubble">Assalamualaikum! Selamat belajar hari ini! 📚</div>
-      <div class="mascot-char">🧒</div>
+      <!-- FIX 3: Ditukar daripada emoji kepada gambar avatar -->
+      <div class="mascot-char">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgx5PLtj3UiyscaqouAC1dRerEKicHqgZe0Hq__tSaviV0Vo-XXHW4ULOJklqE-2RePJyZPJEFT1E9ke5kZHXudB5D2RySD1f-ZDd-qfOTL4e49BXt54nuT2bJqja-EYALWseb-kDwrJb-qcBByq67_EO6Pl5bQEEVSkIT8g0e2fZCi_-Yq5tqCa9fXuKli=s16000" alt="Avatar Maskot" style="width:80px;height:80px;object-fit:contain;display:block;" />
+      </div>
     </div>
     <div class="hero-text">
       <h1>Hai, Pelajar Hebat! <span class="wave">👋</span></h1>
@@ -510,7 +513,8 @@
       }, 500); 
     }
 
-    setInterval(updateBubble, 15000);
+    // FIX 2: Masa ditukar kepada 5 saat (5000ms), pertama kali muncul selepas 2 saat
+    setInterval(updateBubble, 5000);
     setTimeout(updateBubble, 2000);
   </script>
 </body>
